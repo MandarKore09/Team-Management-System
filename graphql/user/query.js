@@ -1,4 +1,4 @@
-const { GraphQLInt } = require("graphql");
+const { GraphQLInt, GraphQLList } = require("graphql");
 const { connect } = require("../../dbconfig");
 const User = require("../../models/User");
 const UserType = require("./typeDef");
@@ -17,6 +17,16 @@ const getUser = {
   },
 };
 
+const getAllUsers = {
+  type: new GraphQLList(UserType),
+  resolve: async () => {
+    await connect();
+    const user = await User.findAll();
+    return user;
+  },
+};
+
 module.exports = {
   getUser,
+  getAllUsers,
 };
