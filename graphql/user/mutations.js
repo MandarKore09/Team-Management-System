@@ -20,6 +20,7 @@ const createUser = {
     return user;
   },
 };
+
 const updateUser = {
   type: StatusType,
   args: {

@@ -25,6 +25,7 @@ const updateTodo = {
   type: TodoType,
   args: {
     workId: { type: GraphQLNonNull(GraphQLInt) },
+    userId: { type: GraphQLNonNull(GraphQLInt) },
     title: { type: GraphQLString },
     description: { type: GraphQLString },
     status: { type: GraphQLString },
